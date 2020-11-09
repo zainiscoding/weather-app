@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import Weather from './Weather';
+import DisplayWeather from './DisplayWeather';
 
 const WeatherContainer = (props) => {
   const [weather, setWeather] = useState();
@@ -30,7 +30,7 @@ const WeatherContainer = (props) => {
 
   return (
     <>
-      <Weather weather={weather} />
+      <DisplayWeather weather={weather} />
     </>
   );
 };

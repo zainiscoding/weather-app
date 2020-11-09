@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import MapLocation from './MapLocation';
+import DisplayMapLocation from './DisplayMapLocation';
 
 const MapLocationContainer = (props) => {
   function getLocation() {
@@ -17,7 +17,7 @@ const MapLocationContainer = (props) => {
 
   return (
     <>
-      <MapLocation coordinates={props.coordinates} />
+      <DisplayMapLocation coordinates={props.coordinates} />
     </>
   );
 };
