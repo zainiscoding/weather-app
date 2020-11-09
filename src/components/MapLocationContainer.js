@@ -1,13 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
-import WeatherContainer from './WeatherContainer';
+import React, { useEffect } from 'react';
 import MapLocation from './MapLocation';
 
 const MapLocationContainer = (props) => {
-  const [coordinates, setCoordinates] = useState({});
-
   function getLocation() {
     navigator.geolocation.getCurrentPosition((position) => {
-      return setCoordinates({
+      return props.setCoordinates({
         latitude: position.coords.latitude,
         longitude: position.coords.longitude,
       });
@@ -20,8 +17,7 @@ const MapLocationContainer = (props) => {
 
   return (
     <>
-      <WeatherContainer coordinates={coordinates} />
-      <MapLocation coordinates={coordinates} />
+      <MapLocation coordinates={props.coordinates} />
     </>
   );
 };

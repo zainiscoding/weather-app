@@ -29,9 +29,9 @@ const WeatherContainer = (props) => {
   }
 
   return (
-    <div className='App'>
+    <>
       <Weather weather={weather} />
-    </div>
+    </>
   );
 };
 
