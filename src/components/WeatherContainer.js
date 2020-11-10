@@ -6,6 +6,7 @@ const WeatherContainer = (props) => {
 
   const initialRender = useRef(true);
 
+  //If it's the first render, set 'intialRender' to false. Otherwise, get the current weather
   useEffect(() => {
     if (initialRender.current) {
       initialRender.current = false;
@@ -40,6 +41,7 @@ const WeatherContainer = (props) => {
     }
   }
 
+  //Switch from metric to imperial
   async function changeUnits() {
     if (units === 'metric') {
       setUnits('imperial');

@@ -5,6 +5,7 @@ import WeatherContainer from './components/WeatherContainer';
 const App = () => {
   const [location, setLocation] = useState({});
   const [weather, setWeather] = useState();
+
   return (
     <div id='App'>
       <MapLocationContainer
