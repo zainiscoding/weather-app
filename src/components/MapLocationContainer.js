@@ -1,23 +1,29 @@
 import React, { useEffect } from 'react';
-import DisplayMapLocation from './DisplayMapLocation';
+import DisplayCitySearch from './DisplayCitySearch';
 
 const MapLocationContainer = (props) => {
-  function getLocation() {
+  function getCurrentLocation() {
     navigator.geolocation.getCurrentPosition((position) => {
-      return props.setCoordinates({
+      return props.setLocation({
         latitude: position.coords.latitude,
         longitude: position.coords.longitude,
       });
     });
   }
 
+  function setCity(e) {
+    props.setLocation((prevState) => {
+      prevState.city = e.target.previousSibling.textContent;
+    });
+  }
+
   useEffect(() => {
-    getLocation();
+    getCurrentLocation();
   }, []);
 
   return (
     <>
-      <DisplayMapLocation coordinates={props.coordinates} />
+      <DisplayCitySearch location={props.location} />
     </>
   );
 };
