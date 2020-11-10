@@ -5,6 +5,7 @@ const WeatherContainer = (props) => {
   const [units, setUnits] = useState('metric');
 
   const initialRender = useRef(true);
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   //If it's the first render, set 'intialRender' to false. Otherwise, get the current weather
   useEffect(() => {
@@ -19,7 +20,7 @@ const WeatherContainer = (props) => {
     if (props.location.city === undefined) {
       try {
         const response = await fetch(
-          `//api.openweathermap.org/data/2.5/weather?lat=${props.location.latitude}&lon=${props.location.longitude}&units=${units}&appid=f9b7f2a3f00f9e5810f5267b2fdacf8c`,
+          `//api.openweathermap.org/data/2.5/weather?lat=${props.location.latitude}&lon=${props.location.longitude}&units=${units}&appid=${apiKey}`,
           { mode: 'cors' }
         );
         const weatherData = await response.json();
@@ -30,7 +31,7 @@ const WeatherContainer = (props) => {
     } else {
       try {
         const response = await fetch(
-          `//api.openweathermap.org/data/2.5/weather?q=${props.location.city}&units=${units}&appid=f9b7f2a3f00f9e5810f5267b2fdacf8c`,
+          `//api.openweathermap.org/data/2.5/weather?q=${props.location.city}&units=${units}&appid=${apiKey}`,
           { mode: 'cors' }
         );
         const weatherData = await response.json();
