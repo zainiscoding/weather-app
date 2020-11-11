@@ -3,6 +3,7 @@ import DisplayWeather from './DisplayWeather';
 
 const WeatherContainer = (props) => {
   const [units, setUnits] = useState('metric');
+  const [weatherIcon, setWeatherIcon] = useState('');
 
   const initialRender = useRef(true);
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -16,6 +17,16 @@ const WeatherContainer = (props) => {
     }
   }, [props.location, units]);
 
+  async function setWeatherData(response) {
+    const weatherData = await response.json();
+    props.setWeather(weatherData);
+    setWeatherIcon(
+      'http://openweathermap.org/img/wn/' +
+        weatherData.weather[0].icon +
+        '@2x.png'
+    );
+  }
+
   async function getWeather() {
     if (props.location.city === undefined) {
       try {
@@ -23,8 +34,7 @@ const WeatherContainer = (props) => {
           `//api.openweathermap.org/data/2.5/weather?lat=${props.location.latitude}&lon=${props.location.longitude}&units=${units}&appid=${apiKey}`,
           { mode: 'cors' }
         );
-        const weatherData = await response.json();
-        props.setWeather(weatherData);
+        setWeatherData(response);
       } catch (err) {
         console.log(err);
       }
@@ -34,8 +44,7 @@ const WeatherContainer = (props) => {
           `//api.openweathermap.org/data/2.5/weather?q=${props.location.city}&units=${units}&appid=${apiKey}`,
           { mode: 'cors' }
         );
-        const weatherData = await response.json();
-        props.setWeather(weatherData);
+        setWeatherData(response);
       } catch (err) {
         console.log(err);
       }
@@ -53,7 +62,11 @@ const WeatherContainer = (props) => {
 
   return (
     <>
-      <DisplayWeather weather={props.weather} changeUnits={changeUnits} />
+      <DisplayWeather
+        weather={props.weather}
+        changeUnits={changeUnits}
+        weatherIcon={weatherIcon}
+      />
     </>
   );
 };

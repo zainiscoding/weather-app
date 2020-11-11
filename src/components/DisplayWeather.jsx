@@ -12,6 +12,11 @@ const Weather = (props) => {
           <h2>
             It's {props.weather.main.temp}° in {props.weather.name}.
           </h2>
+          <div id='display-weather-wrapper__details-wrapper'>
+            <p className='detail'>
+              <img src={props.weatherIcon} alt='current weather icon' />
+            </p>
+          </div>
           <p>{props.weather.name}</p>
         </>
       )}
