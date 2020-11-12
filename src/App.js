@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import MapLocationContainer from './components/MapLocationContainer';
 import WeatherContainer from './components/WeatherContainer';
+import './styles/reset.css';
+import './styles/main.css';
 
 const App = () => {
   const [location, setLocation] = useState({});

@@ -1,0 +1,9 @@
+.fa-snowflake {
+  width: 1000px;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
