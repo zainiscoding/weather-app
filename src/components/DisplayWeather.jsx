@@ -1,4 +1,5 @@
 import React from 'react';
+import DisplayError from './DisplayError';
 
 const DisplayWeather = (props) => {
   return (
@@ -11,28 +12,44 @@ const DisplayWeather = (props) => {
           {props.weather === undefined && props.loadingIcon}
           {props.weather !== undefined && (
             <>
-              <h2>
-                It's {props.weather.main.temp}° in {props.weather.name}.
-              </h2>
+              <div id='display-weather-wrapper__degrees-wrapper'>
+                <h2>
+                  It's {props.weather.main.temp}° in {props.weather.name}.
+                </h2>
+              </div>
               <div id='display-weather-wrapper__details-wrapper'>
-                <div className='detail'>
+                <div id='display-weather-wrapper__icon-description-wrapper'>
                   <img src={props.weatherIcon} alt='current weather icon' />
                   <p>{props.weatherDescription}</p>
                 </div>
+                <div id='details-wrapper__details-box'>
+                  <div className='detail'>
+                    <p className='detail__text'>
+                      Feels like: {props.weather.main.feels_like}°
+                    </p>
+                  </div>
+                  <div className='detail'>
+                    <p className='detail__text'>
+                      Max: {props.weather.main.temp_max}°
+                    </p>
+                  </div>
+                  <div className='detail'>
+                    <p className='detail__text'>
+                      Min: {props.weather.main.temp_min}°
+                    </p>
+                  </div>
+                  <div className='detail'>
+                    <p className='detail__text'>
+                      Humidity: {props.weather.main.humidity}%
+                    </p>
+                  </div>
+                </div>
               </div>
-              <p>{props.weather.name}</p>
             </>
           )}
         </div>
       )}
-      {props.weatherError === true && (
-        <div id='display-weather-error-wrapper'>
-          <h2>
-            We're sorry, we can't seem to find the weather for your area. Please
-            double check the city name.
-          </h2>
-        </div>
-      )}
+      {props.weatherError === true && <DisplayError />}
     </>
   );
 };

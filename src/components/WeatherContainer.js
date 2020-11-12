@@ -43,10 +43,6 @@ const WeatherContainer = (props) => {
     setWeatherError(false);
   }
 
-  function displayError() {
-    setWeatherError(true);
-  }
-
   async function getWeather() {
     if (props.location.city === undefined) {
       try {
@@ -55,12 +51,12 @@ const WeatherContainer = (props) => {
           { mode: 'cors' }
         );
         if (response.ok === false) {
-          throw displayError();
+          throw setWeatherError(true);
         } else {
           setWeatherData(response);
         }
       } catch (err) {
-        displayError();
+        console.log(err);
       }
     } else {
       try {
@@ -69,12 +65,12 @@ const WeatherContainer = (props) => {
           { mode: 'cors' }
         );
         if (response.ok === false) {
-          throw displayError();
+          throw setWeatherError(true);
         } else {
           setWeatherData(response);
         }
       } catch (err) {
-        displayError();
+        console.log(err);
       }
     }
   }
