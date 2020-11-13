@@ -7,7 +7,6 @@ const WeatherContainer = (props) => {
   const [units, setUnits] = useState('metric');
   const [weatherIcon, setWeatherIcon] = useState('');
   const [weatherDescription, setWeatherDescription] = useState('');
-  const [weatherError, setWeatherError] = useState(false);
 
   const initialRender = useRef(true);
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -40,7 +39,7 @@ const WeatherContainer = (props) => {
     setWeatherDescription(
       weatherDescription.charAt(0).toUpperCase() + weatherDescription.slice(1)
     );
-    setWeatherError(false);
+    props.setWeatherError(false);
   }
 
   async function getWeather() {
@@ -51,7 +50,7 @@ const WeatherContainer = (props) => {
           { mode: 'cors' }
         );
         if (response.ok === false) {
-          throw setWeatherError(true);
+          throw props.setWeatherError(true);
         } else {
           setWeatherData(response);
         }
@@ -65,7 +64,7 @@ const WeatherContainer = (props) => {
           { mode: 'cors' }
         );
         if (response.ok === false) {
-          throw setWeatherError(true);
+          throw props.setWeatherError(true);
         } else {
           setWeatherData(response);
         }
@@ -105,7 +104,8 @@ const WeatherContainer = (props) => {
         weatherIcon={weatherIcon}
         weatherDescription={weatherDescription}
         loadingIcon={loadingIcon}
-        weatherError={weatherError}
+        weatherError={props.weatherError}
+        location={props.location}
       />
     </>
   );

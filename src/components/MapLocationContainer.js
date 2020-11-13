@@ -12,12 +12,23 @@ const MapLocationContainer = (props) => {
     });
   }
 
-  //Set the state to city instead of coordinates
-  function setCity(e) {
-    if (e.target.previousSibling.value.length > 0) {
-      return props.setLocation({
-        city: e.target.previousSibling.value,
+  //Find the coordinates of a city and set the location to that city
+  async function getCoordinatesByCity(e) {
+    try {
+      const response = await fetch(
+        `https://geocode.xyz/${e.target.previousSibling.value}?json=1`,
+        { mode: 'cors' }
+      );
+      const responseData = await response.json();
+      console.log(responseData.altgeocode);
+      props.setLocation({
+        latitude: responseData.latt,
+        longitude: responseData.longt,
+        city: responseData.standard.city,
       });
+    } catch (err) {
+      console.log(err);
+      props.setWeatherError(true);
     }
   }
 
@@ -37,7 +48,7 @@ const MapLocationContainer = (props) => {
     <>
       <DisplayCitySearch
         location={props.location}
-        setCity={setCity}
+        getCoordinatesByCity={getCoordinatesByCity}
         checkForEmptyLocation={checkForEmptyLocation}
       />
     </>

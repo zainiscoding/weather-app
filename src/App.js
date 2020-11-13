@@ -7,6 +7,7 @@ import './styles/main.css';
 const App = () => {
   const [location, setLocation] = useState({});
   const [weather, setWeather] = useState();
+  const [weatherError, setWeatherError] = useState(false);
 
   return (
     <div id='App'>
@@ -14,11 +15,14 @@ const App = () => {
         location={location}
         setLocation={setLocation}
         weather={weather}
+        setWeatherError={setWeatherError}
       />
       <WeatherContainer
         weather={weather}
         setWeather={setWeather}
         location={location}
+        weatherError={weatherError}
+        setWeatherError={setWeatherError}
       />
     </div>
   );

@@ -13,9 +13,16 @@ const DisplayWeather = (props) => {
           {props.weather !== undefined && (
             <>
               <div id='display-weather-wrapper__degrees-wrapper'>
-                <h2>
-                  It's {props.weather.main.temp}° in {props.weather.name}.
-                </h2>
+                {props.location.city !== undefined && (
+                  <h2>
+                    It's {props.weather.main.temp}° in {props.location.city}.
+                  </h2>
+                )}
+                {props.location.city === undefined && (
+                  <h2>
+                    It's {props.weather.main.temp}° in {props.weather.name}.
+                  </h2>
+                )}
               </div>
               <div id='display-weather-wrapper__details-wrapper'>
                 <div id='display-weather-wrapper__icon-description-wrapper'>

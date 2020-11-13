@@ -9,7 +9,10 @@ const DisplayCitySearch = (props) => {
         placeholder='Enter a city'
         onChange={props.checkForEmptyLocation}
       ></input>
-      <button id='city-search-wrapper__search-button' onClick={props.setCity}>
+      <button
+        id='city-search-wrapper__search-button'
+        onClick={props.getCoordinatesByCity}
+      >
         Get weather
       </button>
     </div>
