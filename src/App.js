@@ -15,6 +15,7 @@ const App = () => {
         location={location}
         setLocation={setLocation}
         weather={weather}
+        setWeather={setWeather}
         setWeatherError={setWeatherError}
       />
       <WeatherContainer

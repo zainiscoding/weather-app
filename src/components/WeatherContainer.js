@@ -43,49 +43,20 @@ const WeatherContainer = (props) => {
   }
 
   async function getWeather() {
-    if (props.location.city === undefined) {
-      try {
-        const response = await fetch(
-          `//api.openweathermap.org/data/2.5/weather?lat=${props.location.latitude}&lon=${props.location.longitude}&units=${units}&appid=${apiKey}`,
-          { mode: 'cors' }
-        );
-        if (response.ok === false) {
-          throw props.setWeatherError(true);
-        } else {
-          setWeatherData(response);
-        }
-      } catch (err) {
-        console.log(err);
+    try {
+      const response = await fetch(
+        `//api.openweathermap.org/data/2.5/weather?lat=${props.location.latitude}&lon=${props.location.longitude}&units=${units}&appid=${apiKey}`,
+        { mode: 'cors' }
+      );
+      if (response.ok === false) {
+        throw props.setWeatherError(true);
+      } else {
+        setWeatherData(response);
       }
-    } else {
-      try {
-        const response = await fetch(
-          `//api.openweathermap.org/data/2.5/weather?q=${props.location.city}&units=${units}&appid=${apiKey}`,
-          { mode: 'cors' }
-        );
-        if (response.ok === false) {
-          throw props.setWeatherError(true);
-        } else {
-          setWeatherData(response);
-        }
-      } catch (err) {
-        console.log(err);
-      }
+    } catch (err) {
+      console.log(err);
     }
   }
-
-  //   async function getWeather() {
-  //     try {
-  //       const response = await fetch(
-  //         `//api.openweathermap.org/data/2.5/weather?q=Tokyo&appid=7c96ea14ab892a5bb3382ee2bb277434`,
-  //         { mode: 'cors' }
-  //       );
-  //       console.log(response);
-  //     } catch (err) {
-  //       console.log(err);
-  // console.log("error above")
-  //     }
-  //   }
 
   //Switch from metric to imperial
   async function changeUnits() {

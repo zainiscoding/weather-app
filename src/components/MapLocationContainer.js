@@ -14,18 +14,22 @@ const MapLocationContainer = (props) => {
 
   //Find the coordinates of a city and set the location to that city
   async function getCoordinatesByCity(e) {
+    props.setWeather();
     try {
       const response = await fetch(
         `https://geocode.xyz/${e.target.previousSibling.value}?json=1`,
         { mode: 'cors' }
       );
       const responseData = await response.json();
-      console.log(responseData.altgeocode);
-      props.setLocation({
-        latitude: responseData.latt,
-        longitude: responseData.longt,
-        city: responseData.standard.city,
-      });
+      if (responseData.matches === null) {
+        throw props.setWeatherError(true);
+      } else {
+        props.setLocation({
+          latitude: responseData.latt,
+          longitude: responseData.longt,
+          city: responseData.standard.city,
+        });
+      }
     } catch (err) {
       console.log(err);
       props.setWeatherError(true);
