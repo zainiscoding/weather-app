@@ -4,7 +4,7 @@ const DisplayWeatherCurrent = (props) => {
       <div id='display-weather-wrapper__degrees-wrapper'>
         {props.city !== 'undefined' && (
           <h2 id='current-temp-text'>
-            It's {props.weather.current.temp}° in {props.city}.
+            It's {Math.round(props.weather.current.temp)}° in {props.city}.
           </h2>
         )}
         {props.city === 'undefined' && (
