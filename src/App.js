@@ -12,9 +12,7 @@ const App = () => {
   return (
     <div id='App'>
       <MapLocationContainer
-        location={location}
         setLocation={setLocation}
-        weather={weather}
         setWeather={setWeather}
         setWeatherError={setWeatherError}
       />

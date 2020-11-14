@@ -14,20 +14,6 @@ const WeatherContainer = (props) => {
     <FontAwesomeIcon icon={faSnowflake} size='4x' className='fa-spin' />
   );
   const today = new Date();
-  const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
 
   //If it's the first render, set 'intialRender' to false. Otherwise, get the current weather
   useEffect(() => {
@@ -95,9 +81,7 @@ const WeatherContainer = (props) => {
         weatherError={props.weatherError}
         location={props.location}
         currentDay={currentDay}
-        months={months}
       />
-      <button onClick={showdate}></button>
     </>
   );
 };

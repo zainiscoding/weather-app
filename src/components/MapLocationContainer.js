@@ -27,6 +27,7 @@ const MapLocationContainer = (props) => {
 
   //Find the coordinates of a city and set the location to that city
   async function getCoordinatesByCity(e) {
+    //This is called here to display the loading spinner while waiting for the fetch below
     props.setWeather();
     try {
       const response = await fetch(
