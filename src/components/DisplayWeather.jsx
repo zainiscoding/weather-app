@@ -30,6 +30,8 @@ const DisplayWeather = (props) => {
                 weather={props.weather}
                 weatherIcon={props.weatherIcon}
                 currentDay={props.currentDay}
+                days={props.days}
+                months={props.months}
               />
             </>
           )}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { add } from 'date-fns';
 
 const DisplayWeatherDaily = (props) => {
   return (
@@ -7,13 +8,13 @@ const DisplayWeatherDaily = (props) => {
         return (
           <>
             <p>
-              {JSON.stringify(
-                `${props.currentDay.getMonth()}/${
-                  props.currentDay.getDate() +
-                  props.weather.daily.indexOf(day) +
-                  1
-                }`
-              )}
+              {add(props.currentDay, {
+                days: props.weather.daily.indexOf(day),
+              }).getMonth() + 1}
+              /
+              {add(props.currentDay, {
+                days: props.weather.daily.indexOf(day),
+              }).getDate() + 1}
             </p>
             <img
               src={
