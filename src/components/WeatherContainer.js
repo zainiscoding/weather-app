@@ -26,6 +26,7 @@ const WeatherContainer = (props) => {
   async function setWeatherData(response) {
     const weatherData = await response.json();
     props.setWeather(weatherData);
+    console.log(weatherData);
     const weatherDataWeather = weatherData.current.weather[0];
 
     if (weatherDataWeather.icon === undefined) {

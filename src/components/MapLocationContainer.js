@@ -12,7 +12,8 @@ const MapLocationContainer = (props) => {
           { mode: 'cors' }
         );
         const responseData = await response.json();
-        return props.setLocation({
+        console.log(responseData);
+        props.setLocation({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
           city: `${responseData.city}`,

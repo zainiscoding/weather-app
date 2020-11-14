@@ -1,6 +1,7 @@
 import React from 'react';
 import DisplayError from './DisplayError';
 import DisplayWeatherCurrent from './DisplayWeatherCurrent';
+import DisplayWeatherDaily from './DisplayWeatherDaily';
 
 const DisplayWeather = (props) => {
   return (
@@ -12,18 +13,20 @@ const DisplayWeather = (props) => {
             <>
               <button onClick={props.changeUnits}>°C/°F</button>
               <div id='display-weather-wrapper__degrees-wrapper'>
-                {props.location.city !== undefined && (
+                {props.location.city !== 'undefined' && (
                   <h2>
                     It's {props.weather.current.temp}° in {props.location.city}.
                   </h2>
                 )}
-                {props.location.city === undefined && (
-                  <h2>
-                    It's {props.weather.current.temp}° in {props.weather.name}.
-                  </h2>
+                {props.location.city === 'undefined' && (
+                  <h2>It's {props.weather.current.temp}° in your city.</h2>
                 )}
               </div>
               <DisplayWeatherCurrent
+                weather={props.weather}
+                weatherIcon={props.weatherIcon}
+              />
+              <DisplayWeatherDaily
                 weather={props.weather}
                 weatherIcon={props.weatherIcon}
               />
