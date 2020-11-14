@@ -1,3 +1,9 @@
+#App {
+  height: 100vh;
+  width: 100vw;
+  text-align: -webkit-center;
+}
+
 .fa-snowflake {
   width: 1000px;
 }
@@ -13,3 +19,93 @@
   flex-direction: column;
   align-items: center;
 }
+
+#city-search-wrapper {
+  display: flex;
+  flex-direction: row;
+  place-content: center;
+  place-items: center;
+  width: 100%;
+  height: 20%;
+  background: #eb6e4b;
+}
+
+#city-search-wrapper__search-bar {
+  margin-left: 35px;
+  border: none;
+  border-radius: 8px;
+  height: 26px;
+  text-align: center;
+}
+
+#city-search-wrapper__search-button {
+  margin-left: 10px;
+  color: #48484a;
+}
+
+#display-weather-wrapper {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  place-content: space-evenly;
+  height: 70%;
+  width: 90%;
+}
+
+#display-weather-wrapper__change-units-button {
+  border: none;
+  background: #eb6e4b;
+  border-radius: 8px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#display-weather-wrapper__current-weather {
+}
+
+#display-weather-wrapper__degrees-wrapper {
+  font-size: 24px;
+}
+
+#display-weather-wrapper__daily-weather {
+  overflow: scroll;
+  width: 95%;
+}
+
+#daily-weather__title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#daily-weather__carousel {
+  overflow: scroll;
+  width: 95%;
+  text-align: -webkit-center;
+}
+
+#carousel__daily-weather {
+  display: flex;
+  width: 600px;
+  text-align: center;
+  place-content: center;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.display-weather-wrapper__day {
+  padding: 10px;
+  border-right: solid 1px #c6c6cf;
+}
+
+/* #display-weather-wrapper {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  height: 60%;
+  width: 90%; decrease width
+  margin-top: 20px;
+} */

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import DisplayCitySearch from './DisplayCitySearch';
 
 const MapLocationContainer = (props) => {
@@ -12,7 +12,6 @@ const MapLocationContainer = (props) => {
           { mode: 'cors' }
         );
         const responseData = await response.json();
-        console.log(responseData);
         props.setLocation({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
@@ -60,6 +59,7 @@ const MapLocationContainer = (props) => {
   //Get coordinates on first load
   useEffect(() => {
     getCurrentLocation();
+    // eslint-disable-next-line
   }, []);
 
   return (

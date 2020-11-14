@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import MapLocationContainer from './components/MapLocationContainer';
 import WeatherContainer from './components/WeatherContainer';
 import './styles/reset.css';

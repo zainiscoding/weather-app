@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSnowflake } from '@fortawesome/free-solid-svg-icons';
 import DisplayWeather from './DisplayWeather';
@@ -22,19 +22,13 @@ const WeatherContainer = (props) => {
     } else {
       getWeather();
       setCurrentDay(today);
-      console.log(today.getDate());
-      console.log(currentDay);
     }
+    // eslint-disable-next-line
   }, [props.location, units]);
-
-  function showdate() {
-    console.log(today.getDate());
-  }
 
   async function setWeatherData(response) {
     const weatherData = await response.json();
     props.setWeather(weatherData);
-    console.log(weatherData);
     const weatherDataWeather = weatherData.current.weather[0];
 
     if (weatherDataWeather.icon === undefined) {

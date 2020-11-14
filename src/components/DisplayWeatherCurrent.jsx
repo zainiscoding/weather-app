@@ -1,8 +1,16 @@
-import React from 'react';
-
 const DisplayWeatherCurrent = (props) => {
   return (
     <div id='display-weather-wrapper__current-weather'>
+      <div id='display-weather-wrapper__degrees-wrapper'>
+        {props.city !== 'undefined' && (
+          <h2 id='current-temp-text'>
+            It's {props.weather.current.temp}° in {props.city}.
+          </h2>
+        )}
+        {props.city === 'undefined' && (
+          <h2>It's {props.weather.current.temp}° in your city.</h2>
+        )}
+      </div>
       <div id='current-weather__icon-description-wrapper'>
         <img src={props.weatherIcon} alt='current weather icon' />
         <p>
