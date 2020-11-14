@@ -26,7 +26,7 @@ const WeatherContainer = (props) => {
   async function setWeatherData(response) {
     const weatherData = await response.json();
     props.setWeather(weatherData);
-    const weatherDataWeather = weatherData.weather[0];
+    const weatherDataWeather = weatherData.current.weather[0];
 
     if (weatherDataWeather.icon === undefined) {
       setWeatherIcon('Loading...');
@@ -45,7 +45,7 @@ const WeatherContainer = (props) => {
   async function getWeather() {
     try {
       const response = await fetch(
-        `//api.openweathermap.org/data/2.5/weather?lat=${props.location.latitude}&lon=${props.location.longitude}&units=${units}&appid=${apiKey}`,
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${props.location.latitude}&lon=${props.location.longitude}&exclude=minutely,alerts&units=${units}&appid=${apiKey}`,
         { mode: 'cors' }
       );
       if (response.ok === false) {

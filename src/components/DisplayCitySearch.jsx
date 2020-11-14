@@ -13,7 +13,7 @@ const DisplayCitySearch = (props) => {
         id='city-search-wrapper__search-button'
         onClick={props.getCoordinatesByCity}
       >
-        Get weather
+        Search
       </button>
     </div>
   );

@@ -4,11 +4,23 @@ import DisplayCitySearch from './DisplayCitySearch';
 const MapLocationContainer = (props) => {
   //Get the current coordinates and update the state
   function getCurrentLocation() {
-    navigator.geolocation.getCurrentPosition((position) => {
-      return props.setLocation({
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
-      });
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      try {
+        //Get the city name based on current coordinates
+        const response = await fetch(
+          `https://geocode.xyz/${position.coords.latitude},${position.coords.longitude}?geoit=json`,
+          { mode: 'cors' }
+        );
+        const responseData = await response.json();
+        return props.setLocation({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          city: `${responseData.city}`,
+        });
+      } catch (err) {
+        console.log(err);
+        props.setWeatherError(true);
+      }
     });
   }
 
@@ -51,7 +63,6 @@ const MapLocationContainer = (props) => {
   return (
     <>
       <DisplayCitySearch
-        location={props.location}
         getCoordinatesByCity={getCoordinatesByCity}
         checkForEmptyLocation={checkForEmptyLocation}
       />
