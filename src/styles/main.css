@@ -1,7 +1,7 @@
 #App {
   height: 100vh;
   width: 100vw;
-  text-align: center;
+  text-align: -webkit-center;
   font-family: 'Noto Serif JP', serif;
   -ms-overflow-style: none; /* IE 11 */
   scrollbar-width: none; /* Firefox 64 */
@@ -90,9 +90,12 @@
 }
 
 #display-weather-wrapper__daily-weather {
+  display: flex;
+  flex-direction: column;
   scrollbar-width: none;
   overflow: scroll;
   width: 95%;
+  text-align: center;
 }
 
 .details-box__detail {
@@ -107,7 +110,7 @@
 
 #daily-weather__carousel {
   overflow: scroll;
-  width: 95%;
+  width: 600px;
   text-align: center;
   scrollbar-width: none;
 }
@@ -194,6 +197,7 @@ a {
   #city-search-wrapper__search-button--color:hover {
     background: #6d6d70;
   }
+
   #display-weather-wrapper {
     display: flex;
     flex-direction: column;
@@ -201,5 +205,22 @@ a {
     height: 60%;
     width: 50%;
     margin-top: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #display-weather-wrapper__daily-weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scrollbar-width: none;
+    overflow: scroll;
+    width: 95%;
+    text-align: center;
+  }
+  #daily-weather__carousel {
+    overflow: scroll;
+    text-align: center;
+    scrollbar-width: none;
   }
 }
