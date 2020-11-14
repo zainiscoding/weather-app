@@ -26,26 +26,32 @@ const MapLocationContainer = (props) => {
 
   //Find the coordinates of a city and set the location to that city
   async function getCoordinatesByCity(e) {
-    //This is called here to display the loading spinner while waiting for the fetch below
-    props.setWeather();
-    try {
-      const response = await fetch(
-        `https://geocode.xyz/${e.target.previousSibling.value}?json=1`,
-        { mode: 'cors' }
-      );
-      const responseData = await response.json();
-      if (responseData.matches === null) {
-        throw props.setWeatherError(true);
-      } else {
-        props.setLocation({
-          latitude: responseData.latt,
-          longitude: responseData.longt,
-          city: responseData.standard.city,
-        });
+    if (
+      e.target.previousSibling !== null &&
+      e.target.previousSibling.value !== props.location.city
+    ) {
+      console.log(e.target.previousSibling.value);
+      //This is called here to display the loading spinner while waiting for the fetch below
+      props.setWeather();
+      try {
+        const response = await fetch(
+          `https://geocode.xyz/${e.target.previousSibling.value}?json=1`,
+          { mode: 'cors' }
+        );
+        const responseData = await response.json();
+        if (responseData.matches === null) {
+          throw props.setWeatherError(true);
+        } else {
+          props.setLocation({
+            latitude: responseData.latt,
+            longitude: responseData.longt,
+            city: responseData.standard.city,
+          });
+        }
+      } catch (err) {
+        console.log(err);
+        props.setWeatherError(true);
       }
-    } catch (err) {
-      console.log(err);
-      props.setWeatherError(true);
     }
   }
 

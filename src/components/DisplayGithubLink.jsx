@@ -1,7 +1,9 @@
 function DisplayGithubLink() {
   return (
     <div id='display-github-link-wrapper'>
-      <a>View on GitHub</a>
+      <a href='https://github.com/zainiscoding/weather-app' target=' '>
+        View on GitHub
+      </a>
     </div>
   );
 }

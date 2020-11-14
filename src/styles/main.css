@@ -36,17 +36,35 @@
   place-content: center;
 }
 
+#city-search-wrapper__inputs-wrapper__clearbox {
+  background: white;
+}
+
 #city-search-wrapper__search-bar {
   border: none;
   border-radius: 8px;
   font-size: 3.2vh;
   text-align: center;
-  width: 50%;
 }
 
 #city-search-wrapper__search-button {
-  margin-left: 20px;
-  color: #48484a;
+  background: #48484a;
+  border: none;
+  font-size: 3.2vh;
+  color: #eb6e4b;
+  height: 100%;
+}
+
+#city-search-wrapper__search-button--color {
+  background: #48484a;
+  border: none;
+  font-size: 3.2vh;
+  color: #eb6e4b;
+  height: 100%;
+}
+
+#city-search-wrapper__search-button--color:hover {
+  background: #6d6d70;
 }
 
 #display-weather-wrapper {
@@ -56,17 +74,6 @@
   place-content: space-evenly;
   height: 65%;
   width: 90%;
-}
-
-#display-weather-wrapper__change-units-button {
-  border: none;
-  background: #eb6e4b;
-  font-size: 2vh;
-  border-radius: 8px;
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 #display-weather-wrapper__degrees-wrapper {
@@ -116,8 +123,40 @@
   font-size: 2.3vh;
 }
 
+#display-weather-wrapper__change-units-button {
+  border: none;
+  background: #eb6e4b;
+  font-size: 2vh;
+  border-radius: 8px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#display-weather-wrapper__change-units-button--color {
+  border: none;
+  background: #eb6e4b;
+  font-size: 2vh;
+  border-radius: 8px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#display-weather-wrapper__change-units-button--color:hover {
+  background: #de6745;
+}
+
+a {
+  font-size: 2vh;
+  color: #eb6e4b;
+}
+
 #display-weather-error-wrapper {
   margin-top: 20px;
+  margin-bottom: 50px;
   font-size: 3.5vh;
   place-content: center;
 }
@@ -130,6 +169,25 @@
     font-size: 5vh;
   }
 
+  #city-search-wrapper__search-button {
+    background: #48484a;
+    border: none;
+    font-size: 5vh;
+    color: #eb6e4b;
+    height: 100%;
+  }
+
+  #city-search-wrapper__search-button--color {
+    background: #48484a;
+    border: none;
+    font-size: 5vh;
+    color: #eb6e4b;
+    height: 100%;
+  }
+
+  #city-search-wrapper__search-button--color:hover {
+    background: #6d6d70;
+  }
   #display-weather-wrapper {
     display: flex;
     flex-direction: column;

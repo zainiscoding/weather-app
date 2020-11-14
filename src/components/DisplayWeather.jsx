@@ -23,6 +23,10 @@ const DisplayWeather = (props) => {
               />
               <button
                 id='display-weather-wrapper__change-units-button'
+                onMouseEnter={(e) =>
+                  (e.target.id =
+                    'display-weather-wrapper__change-units-button--color')
+                }
                 onClick={props.changeUnits}
               >
                 °C / °F
