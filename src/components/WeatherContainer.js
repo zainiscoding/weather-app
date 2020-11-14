@@ -35,7 +35,7 @@ const WeatherContainer = (props) => {
       setWeatherIcon('Loading...');
     }
     setWeatherIcon(
-      'http://openweathermap.org/img/wn/' + weatherDataWeather.icon + '@2x.png'
+      'https://openweathermap.org/img/wn/' + weatherDataWeather.icon + '@2x.png'
     );
     props.setWeatherError(false);
   }

@@ -21,7 +21,7 @@ const DisplayWeatherDaily = (props) => {
                   </p>
                   <img
                     src={
-                      'http://openweathermap.org/img/wn/' +
+                      'https://openweathermap.org/img/wn/' +
                       day.weather[0].icon +
                       '.png'
                     }
