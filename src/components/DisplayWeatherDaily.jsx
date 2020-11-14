@@ -29,7 +29,7 @@ const DisplayWeatherDaily = (props) => {
                 <div id='daily-weather__details-box'>
                   <div className='details-box__detail'>
                     <p className='detail__text'>
-                      {day.temp.max}° / {day.temp.min}°
+                      {Math.round(day.temp.max)}° / {Math.round(day.temp.min)}°
                     </p>
                   </div>
                 </div>

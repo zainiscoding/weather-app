@@ -25,7 +25,7 @@ const DisplayWeather = (props) => {
                 id='display-weather-wrapper__change-units-button'
                 onClick={props.changeUnits}
               >
-                °C/°F
+                °C / °F
               </button>
             </>
           )}

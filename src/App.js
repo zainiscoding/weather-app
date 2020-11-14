@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import MapLocationContainer from './components/MapLocationContainer';
 import WeatherContainer from './components/WeatherContainer';
+import DisplayGithubLink from './components/DisplayGithubLink';
 import './styles/reset.css';
 import './styles/main.css';
 
@@ -23,6 +24,7 @@ const App = () => {
         weatherError={weatherError}
         setWeatherError={setWeatherError}
       />
+      <DisplayGithubLink />
     </div>
   );
 };

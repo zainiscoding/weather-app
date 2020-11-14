@@ -8,7 +8,7 @@ const DisplayWeatherCurrent = (props) => {
           </h2>
         )}
         {props.city === 'undefined' && (
-          <h2>It's {props.weather.current.temp}° in your city.</h2>
+          <h2>It's {Math.round(props.weather.current.temp)}° in your city.</h2>
         )}
       </div>
       <div id='current-weather__icon-description-wrapper'>
@@ -23,7 +23,7 @@ const DisplayWeatherCurrent = (props) => {
       <div id='current-weather__details-box'>
         <div className='details-box__detail'>
           <p className='detail__text'>
-            Feels like: {props.weather.current.feels_like}°
+            Feels like: {Math.round(props.weather.current.feels_like)}°
           </p>
         </div>
         <div className='details-box__detail'>
