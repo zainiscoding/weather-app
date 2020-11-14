@@ -6,23 +6,28 @@ const DisplayWeatherDaily = (props) => {
       {props.weather.daily.map((day) => {
         return (
           <>
-            <div id='daily-weather__icon-description-wrapper'>
-              <p>
-                {day.weather[0].description.charAt(0).toUpperCase() +
-                  day.weather[0].description.slice(1)}
-              </p>
-            </div>
+            <p>
+              {JSON.stringify(
+                `${props.currentDay.getMonth()}/${
+                  props.currentDay.getDate() +
+                  props.weather.daily.indexOf(day) +
+                  1
+                }`
+              )}
+            </p>
+            <img
+              src={
+                'http://openweathermap.org/img/wn/' +
+                day.weather[0].icon +
+                '.png'
+              }
+              alt='Day weather icon'
+            />
             <div id='daily-weather__details-box'>
               <div className='details-box__detail'>
                 <p className='detail__text'>
-                  Feels like: {day.feels_like.day}°
+                  {day.temp.max}° / {day.temp.min}°
                 </p>
-              </div>
-              <div className='details-box__detail'>
-                <p className='detail__text'>Min: {day.temp.min}°</p>
-              </div>
-              <div className='details-box__detail'>
-                <p className='detail__text'>Max: {day.temp.max}°</p>
               </div>
             </div>
           </>

@@ -29,6 +29,7 @@ const DisplayWeather = (props) => {
               <DisplayWeatherDaily
                 weather={props.weather}
                 weatherIcon={props.weatherIcon}
+                currentDay={props.currentDay}
               />
             </>
           )}

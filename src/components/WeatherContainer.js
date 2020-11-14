@@ -6,7 +6,7 @@ import DisplayWeather from './DisplayWeather';
 const WeatherContainer = (props) => {
   const [units, setUnits] = useState('metric');
   const [weatherIcon, setWeatherIcon] = useState('');
-  const [weatherDescription, setWeatherDescription] = useState('');
+  const [currentDay, setCurrentDay] = useState('');
 
   const initialRender = useRef(true);
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -20,6 +20,7 @@ const WeatherContainer = (props) => {
       initialRender.current = false;
     } else {
       getWeather();
+      setCurrentDay(today);
     }
   }, [props.location, units]);
 
@@ -34,11 +35,6 @@ const WeatherContainer = (props) => {
     }
     setWeatherIcon(
       'http://openweathermap.org/img/wn/' + weatherDataWeather.icon + '@2x.png'
-    );
-
-    let weatherDescription = weatherDataWeather.description;
-    setWeatherDescription(
-      weatherDescription.charAt(0).toUpperCase() + weatherDescription.slice(1)
     );
     props.setWeatherError(false);
   }
@@ -68,16 +64,18 @@ const WeatherContainer = (props) => {
     }
   }
 
+  const today = new Date();
+
   return (
     <>
       <DisplayWeather
         weather={props.weather}
         changeUnits={changeUnits}
         weatherIcon={weatherIcon}
-        weatherDescription={weatherDescription}
         loadingIcon={loadingIcon}
         weatherError={props.weatherError}
         location={props.location}
+        currentDay={currentDay}
       />
     </>
   );

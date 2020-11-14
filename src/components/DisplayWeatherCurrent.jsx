@@ -5,7 +5,12 @@ const DisplayWeatherCurrent = (props) => {
     <div id='display-weather-wrapper__current-weather'>
       <div id='current-weather__icon-description-wrapper'>
         <img src={props.weatherIcon} alt='current weather icon' />
-        <p>{props.weatherDescription}</p>
+        <p>
+          {props.weather.current.weather[0].description
+            .charAt(0)
+            .toUpperCase() +
+            props.weather.current.weather[0].description.slice(1)}
+        </p>
       </div>
       <div id='current-weather__details-box'>
         <div className='details-box__detail'>
