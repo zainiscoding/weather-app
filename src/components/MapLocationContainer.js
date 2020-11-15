@@ -28,7 +28,8 @@ const MapLocationContainer = (props) => {
   async function getCoordinatesByCity(e) {
     if (
       e.target.previousSibling !== null &&
-      e.target.previousSibling.value !== props.location.city
+      e.target.previousSibling.value !== props.location.city &&
+      e.target.previousSibling.value.length !== 0
     ) {
       console.log(e.target.previousSibling.value);
       //This is called here to display the loading spinner while waiting for the fetch below

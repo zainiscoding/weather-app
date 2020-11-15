@@ -6,7 +6,11 @@ import './styles/reset.css';
 import './styles/main.css';
 
 const App = () => {
-  const [location, setLocation] = useState({});
+  const [location, setLocation] = useState({
+    latitude: 35.6762,
+    longitude: 139.6503,
+    city: 'Tokyo',
+  });
   const [weather, setWeather] = useState();
   const [weatherError, setWeatherError] = useState(false);
 

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSnowflake } from '@fortawesome/free-solid-svg-icons';
 import DisplayWeather from './DisplayWeather';
@@ -8,21 +8,18 @@ const WeatherContainer = (props) => {
   const [weatherIcon, setWeatherIcon] = useState('');
   const [currentDay, setCurrentDay] = useState('');
 
-  const initialRender = useRef(true);
   const apiKey = process.env.REACT_APP_API_KEY;
+
   const loadingIcon = (
     <FontAwesomeIcon icon={faSnowflake} size='4x' className='fa-spin' />
   );
+
   const today = new Date();
 
-  //If it's the first render, set 'intialRender' to false. Otherwise, get the current weather
+  //Get the current weather
   useEffect(() => {
-    if (initialRender.current) {
-      initialRender.current = false;
-    } else {
-      getWeather();
-      setCurrentDay(today);
-    }
+    getWeather();
+    setCurrentDay(today);
     // eslint-disable-next-line
   }, [props.location, units]);
 
