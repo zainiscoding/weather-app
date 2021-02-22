@@ -1,13 +1,13 @@
-## Weather
+# Weather
 
 Search by city and get current weather data as well as an 8-day forecast.
 Built with React and the OpenWeather API.
 
-# Screenshots
+## Screenshots
 
 <img src="https://i.imgur.com/K0JeWFA.png" width="45%"></img> <img src="https://i.imgur.com/skKFxhb.png" width="45%"></img>
 
-# Reflection
+## Reflection
 
 This project was built within the context of learning asynchronous JavaScript.
 
