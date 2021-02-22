@@ -3,6 +3,8 @@
 Search by city and get current weather data as well as an 8-day forecast.
 Built with React and the OpenWeather API.
 
+[View live](https://zainthedev.github.io/weather-app/)
+
 ## Screenshots
 
 <img src="https://i.imgur.com/K0JeWFA.png" width="45%"></img> <img src="https://i.imgur.com/skKFxhb.png" width="45%"></img>
